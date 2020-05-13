@@ -3,10 +3,7 @@ name: "Close stale issues with needinfo tag"
 
 on:
   schedule:
-  - cron: "0 0 * * *"
-  push:
-    branches:
-      - 'master'
+  - cron: "*/5 * * * *"
 
 jobs:
   stale:
@@ -15,8 +12,8 @@ jobs:
     - uses: dev-zero/stale@feature/remove-other-labels
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        days-before-stale: 0
-        days-before-close: 0
+        days-before-stale: 1
+        days-before-close: 1
         stale-issue-message: 'More information was requested, but not provided within 30 days. This issue will be automatically closed within 7 days of no comment.'
         only-labels: 'needinfo'
         stale-issue-label: 'stale'
