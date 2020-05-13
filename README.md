@@ -1,0 +1,2 @@
+# stale-issue-test
+test
